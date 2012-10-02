@@ -14,6 +14,10 @@ module ActsAsTaggableOn
     validates_uniqueness_of :name
     validates_length_of :name, :maximum => 255
 
+    searchable do
+      text :name
+    end
+
     ### SCOPES:
 
     def self.named(name)
