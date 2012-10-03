@@ -1,7 +1,7 @@
-puts ::Sunspot
 module ActsAsTaggableOn
   class Tag < ::ActiveRecord::Base
     include ActsAsTaggableOn::Utils
+    Tag.module_eval { include(::Sunspot::Rails::Searchable) }
     attr_accessible :name
 
     ### ASSOCIATIONS:
@@ -14,9 +14,9 @@ module ActsAsTaggableOn
     validates_uniqueness_of :name
     validates_length_of :name, :maximum => 255
 
-    # searchable do
-    #   text :name
-    # end
+    searchable do
+      text :name
+    end
 
     ### SCOPES:
 
