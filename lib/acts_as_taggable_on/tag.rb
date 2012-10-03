@@ -15,7 +15,9 @@ module ActsAsTaggableOn
     validates_length_of :name, :maximum => 255
 
     searchable do
-      text :name
+      text :taggings do
+        taggings.map{ |t| t.taggable.name}
+      end
     end
 
     ### SCOPES:
