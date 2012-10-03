@@ -18,6 +18,10 @@ module ActsAsTaggableOn
       text :taggings do
         taggings.map{ |t| t.taggable.name}
       end
+
+      string :tagger_ids, :multiple => true do
+        taggings.map(&:tagger_id)
+      end
     end
 
     ### SCOPES:
