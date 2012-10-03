@@ -18,8 +18,8 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'pg'
   gem.add_development_dependency 'guard'
   gem.add_development_dependency 'guard-rspec'
-  gem.add_development_dependency 'sunspot_rails'
-  gem.add_development_dependency 'sunspot_solr'
+  gem.add_dependency 'sunspot_rails'
+  gem.add_dependency 'sunspot_solr'
 
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   gem.files         = `git ls-files`.split("\n")
