@@ -16,7 +16,7 @@ module ActsAsTaggableOn
 
     searchable do
       text :taggings, :boost => 5.0 do
-        taggings.map{ |t| t.taggable.name}
+        taggings.map{ |t| t.taggable ? t.taggable.name : ""}
       end
 
       text :name
